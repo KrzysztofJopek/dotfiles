@@ -1,19 +1,23 @@
 DOTS=$(pwd ~/.config/dots)
 
-if [ "$EUID" -ne 0 ]
+if ! command -V yay 2>/dev/null
 then
-	  echo "Please run as root"
-  exit
+	sudo pacman -S --needed --noconfirm git go
+	temp=$(mktemp -d)
+	git clone https://aur.archlinux.org/yay.git "$temp"
+	cd $temp
+	yes | makepkg -si
+	cd -
+	rm -rf "$temp"
 fi
 
-pacman --needed -S -y $(<"$DOTS/.install") --noconfirm
+sudo pacman --needed -S -y $(<"$DOTS/.install") --noconfirm
 
-systemctl enable NetworkManager
-systemctl start NetworkManager
+sudo systemctl enable NetworkManager
+sudo systemctl start NetworkManager
 
 for file in $(ls "$DOTS/scripts/")
 do
-	ln -s "$file" "/usr/local/bin/$file"
+	sudo ln -s "$file" "/usr/local/bin/$file"
 done
-
 
