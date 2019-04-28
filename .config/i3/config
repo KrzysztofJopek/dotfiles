@@ -7,6 +7,7 @@
 # i3 config file (v4)
 #
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
+#
 
 set $mod Mod1
 
@@ -166,7 +167,7 @@ bindsym $mod+r mode "resize"
 # finds out, if available)
 
 exec --no-startup-id nm-applet --sm-disable
-bindsym Control+Mod1+l exec --no-startup-id i3lock -ti ~/simple_gnu_linux_wallpaper_by_dablim-d5kdma2.png
+bindsym Control+Mod1+l exec --no-startup-id i3lock -ti $WALLPAPER
 
 # class                   border  backgr. text    indic.   child_border
   client.focused          #282a36 #44475a #f8f8f2 #FDF6E3
@@ -198,7 +199,6 @@ bindsym XF86AudioPlay exec playerctl play-pause
 bindsym XF86AudioPause exec playerctl pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
-exec --no-startup-id multiscreen
+exec --no-startup-id xrandr --auto
+exec --no-startup-id feh --scale-down --bg-fill $WALLPAPER
 bindsym $mod+m move workspace to output left
-
-
