@@ -17,8 +17,4 @@ sudo pacman --needed -S -y $(<"$DOTS/.install") --noconfirm
 sudo systemctl enable NetworkManager
 sudo systemctl start NetworkManager
 
-for file in $(ls "$DOTS/scripts/")
-do
-	sudo ln -s "$file" "/usr/local/bin/$file"
-done
 
