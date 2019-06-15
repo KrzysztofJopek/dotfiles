@@ -182,7 +182,7 @@ bar {
         status_command i3status
 }
 exec --no-startup-id dunst -conf ~/.config/dunst/dustrc
-exec --no-startup-id /usr/share/battery-notifier/battery.sh
+exec --no-startup-id /usr/local/bin/battery.sh
 
 exec --no-startup-id pactl set-sink-volume 0 100%
 # Pulse Audio controls
