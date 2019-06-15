@@ -1,3 +1,4 @@
+#!/bin/bash
 DOTS=$(pwd ~/.config/dots)
 
 if ! command -V yay 2>/dev/null
