@@ -1,0 +1,21 @@
+#!/bin/bash
+
+VGA=$(xrandr | grep ' connected ' | cut -d ' ' -f1 | grep VGA)
+LVDS=$(xrandr | grep ' connected ' | cut -d ' ' -f1 | grep LVDS)
+
+if [ -z "$VGA" ]; then
+	xrandr --auto
+	feh --bg-fill "/home/krzysztof/$WALLPAPER"
+	exit
+fi
+
+xrandr --output "$LVDS" --output "$VGA" --off
+if [ ! -z $1 ] && [ $1 = "same" ]; then
+	xrandr --output "$VGA" --scale-from 1366x768 --same-as "$LVDS" --auto
+elif [ ! -z $1 ] && [ $1 = "off" ]; then
+	xrandr --output "$LVDS" --output "$VGA" --off
+else
+	xrandr --output "$VGA" --right-of "$LVDS" --auto 
+fi
+feh --bg-fill "/home/krzysztof/$WALLPAPER"
+
