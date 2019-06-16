@@ -17,4 +17,4 @@ sudo pacman --needed -S -y $(<"$DOTS/.install") --noconfirm
 sudo systemctl enable NetworkManager
 sudo systemctl start NetworkManager
 
-
+xrdb ~/.Xresources
