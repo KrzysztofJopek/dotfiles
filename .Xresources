@@ -106,7 +106,7 @@ URxvt.iso14755:            false
 URxvt.iso14755_52:         false
 
 !! Cursor
-URxvt.cursorBlink:         1
+URxvt.cursorBlink:         0
 URxvt.colorUL:             #83a598
 Xcursor.theme:             La Captaine
 
